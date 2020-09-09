@@ -1,6 +1,6 @@
 import { Layout, Spin } from "antd";
 import React, { Component, Suspense } from "react";
-import { Redirect, Switch } from "react-router-dom";
+import { Redirect, Switch, Link } from "react-router-dom";
 import Menus from "../../components/menu/Menus";
 import Siders from "../../components/sider/Siders";
 import logo from "../../media/images/logo.jpg";
@@ -37,7 +37,9 @@ class HomePage extends Component {
     return (
       <Layout>
         <Header className="header">
-          <img src={logo} alt="logo.jpg" className="logo" />
+          <Link to="/dashboard">
+            <img src={logo} alt="logo.jpg" className="logo" />
+          </Link>
           <Menus />
         </Header>
         <UILoading />
