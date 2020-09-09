@@ -1,0 +1,44 @@
+.ant-layout {
+  .ant-layout-content {
+    .site-layout-background {
+      #customers {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+        td {
+          max-width: 100px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+        td,
+        th {
+          border: 1px solid @ninth-color;
+          padding: 8px;
+        }
+
+        tr:nth-child(even) {
+          background-color: @eighth-color;
+        }
+        tr:hover {
+          background-color: @ninth-color;
+        }
+        td:last-child {
+          .ant-btn {
+            margin-left: 10px;
+            &:hover {
+              border-radius: 5px;
+            }
+          }
+        }
+        th {
+          padding-top: 12px;
+          padding-bottom: 12px;
+          text-align: left;
+          background-color: @seventh-color;
+          color: @default-color;
+        }
+      }
+    }
+  }
+}

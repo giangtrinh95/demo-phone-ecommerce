@@ -1,0 +1,55 @@
+.ant-layout-header {
+  .ant-menu {
+    display: flex;
+    .ant-menu-item {
+      .anticon {
+        font-size: 18px;
+      }
+      .ant-dropdown-link {
+        color: @sixth-color;
+        &:hover {
+          color: @default-color;
+        }
+        .anticon-down {
+          font-size: 13px;
+        }
+      }
+
+      .tooltip {
+        &:hover {
+          color: @default-color;
+          cursor: pointer;
+        }
+        .anticon-bell {
+          font-size: 18px;
+        }
+      }
+      .ant-avatar {
+        background-color: @second-color;
+        left: 20px;
+      }
+    }
+    .ant-menu-item-selected.none-active {
+      background-color: @third-color;
+    }
+    justify-content: flex-end;
+  }
+}
+.ant-tooltip {
+  left: 50px;
+  .ant-tooltip-content {
+    .ant-tooltip-inner {
+      border: 1px solid @first-color;
+      border-radius: 15px;
+      // background-color: @default-color;
+      width: 300px;
+      height: 150px;
+      overflow: hidden;
+      .tooltip-text {
+        font-size: 15px;
+        color: @default-color;
+        padding-left: auto;
+      }
+    }
+  }
+}

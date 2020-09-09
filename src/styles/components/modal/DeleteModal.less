@@ -1,0 +1,29 @@
+.delete-modal {
+  .ant-modal-content {
+    .ant-modal-footer {
+      display: flex;
+      flex-direction: row-reverse;
+      .ant-btn-primary {
+        right: 10px;
+        background-color: @five-color;
+        border: none;
+        &:hover {
+          border: 1px solid @six-color;
+          background-color: @nine-color;
+        }
+      }
+    }
+    .ant-modal-title {
+      text-align: center;
+    }
+    .ant-modal-body {
+      display: flex;
+      justify-content: center;
+
+      .ant-typography {
+        bottom: 70px;
+        color: @five-color;
+      }
+    }
+  }
+}
