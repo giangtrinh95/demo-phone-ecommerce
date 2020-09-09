@@ -38,10 +38,10 @@ class Siders extends Component {
   };
   render() {
     const { collapsed } = this.state;
-    const { routes } = this.props;
+    const { routes, location } = this.props;
     return (
       <Sider collapsible collapsed={collapsed} onCollapse={this.onCollapse} breakpoint={"xs"}>
-        <Menu theme="dark" mode="inline" defaultSelectedKeys={[this.props.location.pathname]}>
+        <Menu theme="dark" mode="inline" defaultSelectedKeys={[location.pathname]} key={location.pathname}>
           {this.showMenus(routes)}
         </Menu>
       </Sider>
