@@ -1,11 +1,9 @@
-// // const token = localStorage.getItem("token");
-// // const configToken = {
-// //   Authorization: "Bearer " + token,
-// // };
-// // export default configToken;
 // import axios from "axios";
 // import * as Config from "../constants/Config";
-// import callApi from "../utils/callApi";
-// const token = localStorage.getItem("token");
 
-// export default callApi;
+// const token = localStorage.getItem("token");
+// axios.defaults.baseURL = `${Config.API_URL}`;
+// axios.defaults.headers.common["Authorization"] = "Bearer " + token;
+// axios.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded";
+
+// export default axios;
