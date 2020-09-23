@@ -8,13 +8,15 @@ class Product extends Component {
     return (
       <>
         <tr>
-          <td>{index + 1}</td>
-          <td>{product.id}</td>
-          <td>{product.name}</td>
-          <td>{`${product.price}`.replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</td>
-          <td style={{ textAlign: "center" }}>{checkStatus}</td>
-          <td>{product.description}</td>
-          <td>
+          <td data-label="STT">{index + 1}</td>
+          <td data-label="Mã">{product.id}</td>
+          <td data-label="Tên Sản Phẩm">{product.name}</td>
+          <td data-label="Giá Sản Phẩm">{`${product.price}`.replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</td>
+          <td data-label="Trạng Thái" style={{ textAlign: "center" }}>
+            {checkStatus}
+          </td>
+          <td data-label="Mô Tả">{product.description}</td>
+          <td data-label="Hành Động">
             <Button type="primary" htmlType="submit">
               <Link to={`/edit-product/${product.id}`}>Sửa</Link>
             </Button>
