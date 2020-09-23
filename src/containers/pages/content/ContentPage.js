@@ -4,6 +4,7 @@ import ModalActionPage from "../modalActionPage/ModalActionPage";
 import PaginationPage from "../paginationPage/PaginationPage";
 import SearchBox from "../SearchBox/SearchBox";
 import ProductListPage from "../productListPage/ProductListPage";
+import SortByPrice from "../Sort/SortByPrice";
 const { Content } = Layout;
 
 export default class ContentPage extends Component {
@@ -12,6 +13,7 @@ export default class ContentPage extends Component {
       <Content>
         <div className="site-layout-background">
           <SearchBox />
+          <SortByPrice />
           <ModalActionPage />
           <ProductListPage />
           <PaginationPage />

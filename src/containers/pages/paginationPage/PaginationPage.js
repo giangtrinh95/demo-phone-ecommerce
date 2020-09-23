@@ -11,9 +11,10 @@ class PaginationPage extends Component {
     const { location, contentActions } = this.props;
     const { fetchProductListPage } = contentActions;
     const { search } = location;
-    const { page, keyword } = qs.parse(search);
-
-    if (page && keyword) {
+    const { page, keyword, sortBy, order } = qs.parse(search);
+    if (keyword && sortBy) {
+      fetchProductListPage({ q: keyword, _sort: "price", _order: order, _page: page });
+    } else if (keyword) {
       fetchProductListPage({ _page: page, q: keyword });
     } else if (!page) {
       fetchProductListPage({ _page: 1 });
@@ -21,17 +22,37 @@ class PaginationPage extends Component {
       fetchProductListPage({ _page: page });
     }
   }
-  handlePagination = (page, pageSize) => {
-    const { contentActions, history, location } = this.props;
+  componentDidUpdate(prevProps, prevState) {
+    const { location, contentActions } = this.props;
     const { fetchProductListPage } = contentActions;
     const { search } = location;
-    const { keyword } = qs.parse(search);
-    if (keyword) {
+    const { page, keyword, sortBy, order } = qs.parse(search);
+    if (location !== prevProps.location) {
+      if (keyword && sortBy) {
+        fetchProductListPage({ q: keyword, _sort: "price", _order: order, _page: page });
+      } else if (keyword) {
+        fetchProductListPage({ _page: page, q: keyword });
+      } else if (!page) {
+        fetchProductListPage({ _page: 1 });
+      } else {
+        fetchProductListPage({ _page: page });
+      }
+    }
+  }
+  handlePagination = (page, pageSize) => {
+    const { history, location } = this.props;
+    const { search } = location;
+    const { keyword, sortBy, order } = qs.parse(search);
+    if (keyword && sortBy) {
       history.push({
-        pathname: "/product-list",
+        pathname: "/product-list/search",
+        search: `?keyword=${keyword}&order=${order}&page=${page}&sortBy=${sortBy}`,
+      });
+    } else if (keyword) {
+      history.push({
+        pathname: "/product-list/search",
         search: `?keyword=${keyword}&page=${page}`,
       });
-      fetchProductListPage({ _page: page, q: keyword });
     } else {
       if (page === 1) {
         history.push("/product-list");
@@ -41,7 +62,6 @@ class PaginationPage extends Component {
           search: `?page=${page}`,
         });
       }
-      fetchProductListPage({ _page: page });
     }
   };
 
