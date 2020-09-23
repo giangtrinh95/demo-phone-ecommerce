@@ -13,7 +13,6 @@ class ProductActionPage extends React.Component {
     this.state = {
       id: "",
       name: "",
-      image: "",
       price: "",
       status: true,
       description: "",
@@ -34,7 +33,6 @@ class ProductActionPage extends React.Component {
       this.setState({
         id: itemEditing.id,
         name: itemEditing.name,
-        image: itemEditing.image,
         price: itemEditing.price,
         status: itemEditing.status,
         description: itemEditing.description,
@@ -63,7 +61,7 @@ class ProductActionPage extends React.Component {
   };
   render() {
     const { loading } = this.props;
-    const { id, name, image, price, status, description } = this.state;
+    const { id, name, price, status, description } = this.state;
     return (
       <>
         {loading ? null : (
@@ -78,14 +76,7 @@ class ProductActionPage extends React.Component {
               >
                 <Input />
               </Form.Item>
-              <Form.Item
-                label="Ảnh Sản Phẩm"
-                name="image"
-                initialValue={image}
-                rules={[{ required: true, message: "Please input product image!" }]}
-              >
-                <Input />
-              </Form.Item>
+
               <Form.Item
                 label="Giá Sản Phẩm"
                 name="price"

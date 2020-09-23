@@ -11,7 +11,6 @@ class Product extends Component {
           <td>{index + 1}</td>
           <td>{product.id}</td>
           <td>{product.name}</td>
-          <td>{product.image}</td>
           <td>{`${product.price}`.replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</td>
           <td style={{ textAlign: "center" }}>{checkStatus}</td>
           <td>{product.description}</td>

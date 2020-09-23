@@ -14,6 +14,8 @@ class PaginationPage extends Component {
     const { page, keyword, sortBy, order } = qs.parse(search);
     if (keyword && sortBy) {
       fetchProductListPage({ q: keyword, _sort: "price", _order: order, _page: page });
+    } else if (sortBy) {
+      fetchProductListPage({ _sort: "price", _order: order, _page: page });
     } else if (keyword) {
       fetchProductListPage({ _page: page, q: keyword });
     } else if (!page) {
@@ -30,6 +32,8 @@ class PaginationPage extends Component {
     if (location !== prevProps.location) {
       if (keyword && sortBy) {
         fetchProductListPage({ q: keyword, _sort: "price", _order: order, _page: page });
+      } else if (sortBy) {
+        fetchProductListPage({ _sort: "price", _order: order, _page: page });
       } else if (keyword) {
         fetchProductListPage({ _page: page, q: keyword });
       } else if (!page) {
@@ -47,6 +51,11 @@ class PaginationPage extends Component {
       history.push({
         pathname: "/product-list/search",
         search: `?keyword=${keyword}&order=${order}&page=${page}&sortBy=${sortBy}`,
+      });
+    } else if (sortBy) {
+      history.push({
+        pathname: "/product-list",
+        search: `?order=${order}&page=${page}&sortBy=${sortBy}`,
       });
     } else if (keyword) {
       history.push({
