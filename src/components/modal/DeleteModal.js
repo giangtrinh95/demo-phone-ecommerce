@@ -6,12 +6,10 @@ class DeleteModal extends React.Component {
   handleOk = (hideModal, onDelete) => {
     onDelete();
     hideModal();
-    this.props.history.push("/product-list");
   };
 
   handleCancel = (hideModal) => {
     hideModal();
-    this.props.history.push("/product-list");
   };
 
   render() {
