@@ -51,7 +51,7 @@ class ProductActionPage extends React.Component {
     } else {
       actAddProductRequest(values);
     }
-    history.goBack();
+    history.push("/product-list");
   };
   onCancel = () => {
     const { history, contentActions } = this.props;
