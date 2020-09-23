@@ -2,6 +2,9 @@
   .input-text {
     .ant-typography {
       text-align: center;
+      @media screen and(max-width:400px) {
+        text-align: start;
+      }
     }
     width: 600px;
     margin: 30px auto;
@@ -20,6 +23,16 @@
               justify-content: flex-end;
               .ant-btn {
                 margin-left: 20px;
+              }
+            }
+            @media screen and(max-width:400px) {
+              .ant-form-item-control-input-content {
+                display: flex;
+                margin-top: 20px;
+                justify-content: flex-start;
+                .ant-btn {
+                  margin-left: 20px;
+                }
               }
             }
           }
